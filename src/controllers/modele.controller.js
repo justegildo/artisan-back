@@ -57,7 +57,7 @@ module.exports.updateModele = async (req, res) => {
        const results = await db.query(modeleQueries.updateModele, [nom_mod, num_mod])
 
        if(results.rowCount && results.command === 'UPDATE'){
-             res.status(200).send("Modele modifié avec succès !");
+             res.status(200).send("Modèle modifié avec succès !");
        } else {
         res.status(400).send("Erreur")
        }
@@ -74,14 +74,14 @@ module.exports.deleteModele = async(req, res) => {
     const results = await db.query(modeleQueries.getModeleByNum, [num_mod])
     //console.log(results);
 
-    const noNiveauModeleFound = !results.rows.length;
-    if (noNiveauModeleFound) {
+    const noModeleFound = !results.rows.length;
+    if (noModeleFound) {
         res.send("Impossible de supprimer ce modèle car il n'existe pas dans la base de données. ");
     } else {
         const result = await db.query(modeleQueries.deleteModele, [num_mod])
         //console.log(result);
         if (result) {
-            res.status(200).send("modele supprimé avec succès");
+            res.status(200).send("Modèle supprimé avec succès");
         } else {
 
         }

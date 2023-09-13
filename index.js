@@ -7,7 +7,10 @@ const cors = require("cors");
 require('dotenv').config({path: './src/config/.env'});
 const userRoutes = require('../back/src/routes/utilisateur.routes')
 const typeUserRoutes = require('../back/src/routes/typeUtilisateur.routes')
+const typeMesureRoutes = require('../back/src/routes/typeMesure.routes')
 const modeleRoutes = require('../back/src/routes/modele.routes')
+const mesureRoutes = require('../back/src/routes/mesure.routes')
+const detailMesureRoutes = ('../back/src/routes/detailMesure.routes.js')
 const verifyAuthToken = require ('./src/middleware/middleware')
 
 app.use(express.json());
@@ -38,6 +41,15 @@ app.use('/api/type-user', verifyAuthToken, typeUserRoutes);
 
 //modele
 app.use('/api/modele', /*verifyAuthToken, */ modeleRoutes);
+
+//type mesure
+app.use('/api/type-mesure', /*verifyAuthToken, */ typeMesureRoutes);
+
+//mesure
+app.use('/api/mesure', /*verifyAuthToken, */ mesureRoutes);
+
+//mesure
+app.use('/api/detail-mesure', /*verifyAuthToken, */ detailMesureRoutes);
 
 //le port
 app.listen(process.env.SERVEUR_PORT, () => 

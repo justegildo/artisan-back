@@ -8,14 +8,14 @@ const modeleController = require('../controllers/modele.controller');
  *   post:
  *     summary: Créer un nouveau modele
  *     tags:
- *      - modele
+ *      - Modele
  *     description: Crée un nouveau modele avec les informations fournies.
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/modele'
+ *             $ref: '#/components/schemas/Modele'
  *     responses:
  *       200:
  *         description: modele créé avec succès.
@@ -31,7 +31,7 @@ router.post("/add", modeleController.addModele);
  *   get:
  *     summary: Récupérer tous les types utilisateurs
  *     tags:
- *      - modele
+ *      - Modele
  *     description: Renvoie une liste de tous les modeles.
  *     responses:
  *       200:
@@ -46,7 +46,7 @@ router.get('/', modeleController.getAllModeles);
  *   get:
  *     summary: Récupérer un modele par son identifiant
  *     tags:
- *      - modele
+ *      - Modele
  *     description: Renvoie un modele en fonction de son identifiant.
  *     parameters:
  *       - name: num_mod
@@ -70,7 +70,7 @@ router.get('/:num_mod', modeleController.getModeleByNum);
  *   put:
  *     summary: Mettre à jour un modele
  *     tags:
- *      - modele
+ *      - Modele
  *     description: Met à jour un modele en fonction de son identifiant.
  *     parameters:
  *       - name: num_mod
@@ -84,7 +84,7 @@ router.get('/:num_mod', modeleController.getModeleByNum);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/modele'
+ *             $ref: '#/components/schemas/Modele'
  *     responses:
  *       200:
  *         description: modele mis à jour avec succès.
@@ -99,7 +99,7 @@ router.put('/:num_mod', modeleController.updateModele);
  *   delete:
  *     summary: Supprimer un modele
  *     tags:
- *      - modele
+ *      - Modele
  *     description: Supprime un modele en fonction de son identifiant.
  *     parameters:
  *       - name: num_mod

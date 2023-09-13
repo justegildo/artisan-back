@@ -168,6 +168,45 @@ const swaggerDefinition = {
         ]
       },
 
+      Modele: {
+        "type": "object",
+        "properties": {
+          "nom_mod": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nom_mod", "string"
+        ]
+      },
+
+      TypeMesure: {
+        "type": "object",
+        "properties": {
+          "nom_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nom_type"
+        ]
+      },
+
+      Mesure: {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "number"
+          },
+          "couturier_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "client_id", "couturier_id"
+        ]
+      },
+
   
     }
   },
