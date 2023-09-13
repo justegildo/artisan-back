@@ -55,7 +55,7 @@ router.get('/', detailMesureController.getAllDetailMesures);
  *         description: Identifiant du detail mesure à récupérer
  *         schema:
  *           type: integer
- *      - name: num_type
+ *       - name: num_type
  *         in: path
  *         required: true
  *         description: Numéro de type associé au détail de mesure
@@ -67,7 +67,7 @@ router.get('/', detailMesureController.getAllDetailMesures);
  *       404:
  *         description: Detail mesure non trouvé.
  */
-router.get('/:mesure_id/:num_type', detailMesureController.getDetailMesureByMesureId);
+router.get('/:mesure_id/:num_type', detailMesureController.getDetailMesByMesuIdNumType);
 
 
 /**
@@ -85,7 +85,7 @@ router.get('/:mesure_id/:num_type', detailMesureController.getDetailMesureByMesu
  *         description: Identifiant du detail mesure à mettre à jour
  *         schema:
  *           type: integer
- *      - name: num_type
+ *       - name: num_type
  *         in: path
  *         required: true
  *         description: Numéro de type associé au détail de mesure
@@ -96,7 +96,7 @@ router.get('/:mesure_id/:num_type', detailMesureController.getDetailMesureByMesu
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/DetailMesure'
+ *             $ref: '#/components/schemas/UpdateDetailMesure'
  *     responses:
  *       200:
  *         description: Detail mesure mis à jour avec succès.
@@ -120,7 +120,7 @@ router.put('/:mesure_id/:num_type', detailMesureController.updateDetailMesure);
  *         description: Identifiant du detail mesure à supprimer
  *         schema:
  *           type: integer
- *      - name: num_type
+ *       - name: num_type
  *         in: path
  *         required: true
  *         description: Numéro de type associé au détail de mesure

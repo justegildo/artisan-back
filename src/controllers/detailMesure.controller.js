@@ -19,7 +19,7 @@ module.exports.getDetailMesByMesuIdNumType = async(req, res) =>{
     const mesure_id = parseInt(req.params.mesure_id);
     const num_type = parseInt(req.params.num_type)
 
-    const result = await db.query(detailMesureQueries.getdetailMesByMesuIdNumType, [mesure_id, num_type])
+    const result = await db.query(detailMesureQueries.getDetailMesByMesuIdNumType, [mesure_id, num_type])
     //console.log(result.rowCount);
 
     if(result.rowCount){
@@ -31,13 +31,13 @@ module.exports.getDetailMesByMesuIdNumType = async(req, res) =>{
 
 //env
 module.exports.addDetailMesure =  async (req, res) => {
-    const { valeur } = req.body;
+    const {mesure_id, num_type, valeur } = req.body;
 
     //ajouter un detailMesure
-    const result = await db.query(detailMesureQueries.addDetailMesure, [valeur])
+    const result = await db.query(detailMesureQueries.addDetailMesure, [mesure_id, num_type,valeur])
 
     if(result.rowCount && result.command === 'INSERT'){
-        res.status(201).send("Modèle créee avec succès !");
+        res.status(201).send("Détail mesure créee avec succès !");
     } else {
         res.status(400).json("Impossible d'ajouter")
     }
@@ -74,7 +74,7 @@ module.exports.deleteDetailMesure = async(req, res) => {
     const mesure_id = parseInt(req.params.mesure_id);
     const num_type = parseInt(req.params.num_type)
 
-    const results = await db.query(detailMesureQueries.getDetailMesureByNum, [mesure_id, num_type])
+    const results = await db.query(detailMesureQueries.getDetailMesByMesuIdNumType, [mesure_id, num_type])
     //console.log(results);
 
     const noDetailMesureFound = !results.rows.length;
@@ -84,7 +84,7 @@ module.exports.deleteDetailMesure = async(req, res) => {
         const result = await db.query(detailMesureQueries.deleteDetailMesure, [mesure_id, num_type])
         //console.log(result);
         if (result) {
-            res.status(200).send("Modèle supprimé avec succès");
+            res.status(200).send("Détail mesure supprimé avec succès");
         } else {
 
         }

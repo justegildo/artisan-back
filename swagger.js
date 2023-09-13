@@ -207,6 +207,36 @@ const swaggerDefinition = {
         ]
       },
 
+      DetailMesure: {
+        "type": "object",
+        "properties": {
+          "mesure_id": {
+            "type": "number"
+          },
+          "num_type": {
+            "type": "number"
+          },
+          "valeur": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mesure_id", "num_type", "valeur"
+        ]
+      },
+
+      UpdateDetailMesure: {
+        "type": "object",
+        "properties": {
+          "valeur": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "valeur"
+        ]
+      },
+
   
     }
   },

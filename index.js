@@ -10,7 +10,7 @@ const typeUserRoutes = require('../back/src/routes/typeUtilisateur.routes')
 const typeMesureRoutes = require('../back/src/routes/typeMesure.routes')
 const modeleRoutes = require('../back/src/routes/modele.routes')
 const mesureRoutes = require('../back/src/routes/mesure.routes')
-const detailMesureRoutes = ('../back/src/routes/detailMesure.routes.js')
+const detailMesureRoutes = require('../back/src/routes/detailMesure.routes')
 const verifyAuthToken = require ('./src/middleware/middleware')
 
 app.use(express.json());
