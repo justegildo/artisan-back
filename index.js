@@ -11,6 +11,7 @@ const typeMesureRoutes = require('../back/src/routes/typeMesure.routes')
 const modeleRoutes = require('../back/src/routes/modele.routes')
 const mesureRoutes = require('../back/src/routes/mesure.routes')
 const detailMesureRoutes = require('../back/src/routes/detailMesure.routes')
+const publicationRoutes = require('../back/src/routes/publication.routes')
 const verifyAuthToken = require ('./src/middleware/middleware')
 
 app.use(express.json());
@@ -48,8 +49,11 @@ app.use('/api/type-mesure', /*verifyAuthToken, */ typeMesureRoutes);
 //mesure
 app.use('/api/mesure', /*verifyAuthToken, */ mesureRoutes);
 
-//mesure
+//detail mesure
 app.use('/api/detail-mesure', /*verifyAuthToken, */ detailMesureRoutes);
+
+//publication
+app.use('/api/publication', /*verifyAuthToken, */ publicationRoutes);
 
 //le port
 app.listen(process.env.SERVEUR_PORT, () => 

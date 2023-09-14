@@ -237,6 +237,21 @@ const swaggerDefinition = {
         ]
       },
 
+      Publication: {
+        "type": "object",
+        "properties": {
+          "couturier_id": {
+            "type": "number"
+          },
+          "num_mod": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "couturier_id", "num_mod"
+        ]
+      },
+
   
     }
   },
