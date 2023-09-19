@@ -10,7 +10,7 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'API of EcoiaApp',
     license: {
-      name: "ECOIA",
+      name: "ARTI-COUT",
       url: "https://spdx.org/licenses/JDG.html",
     },
 
@@ -249,6 +249,103 @@ const swaggerDefinition = {
         },
         "required": [
           "couturier_id", "num_mod"
+        ]
+      },
+
+      Commande: {
+        "type": "object",
+        "properties": {
+          "montant": {
+            "type": "string"
+          },
+          "date_livraison": {
+            "type": "string",
+            "format": "date"
+          },
+          "avance": {
+            "type": "string"
+          },
+          "client": {
+            "type": "number"
+          },
+          "couturier": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "couturier", "client", "date_livraison"
+        ]
+      },
+
+      RendezVous: {
+        "type": "object",
+        "properties": {
+          "date_rdv": {
+            "type": "string",
+            "format": "date"
+          },
+          "heure_rdv": {
+            "type": "string"
+          },
+          "commande": {
+            "type": "number"
+          },
+          "client": {
+            "type": "number"
+          },
+          "couturier": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "couturier", "client", "date_livraison"
+        ]
+      },
+
+      Tenue: {
+        "type": "object",
+        "properties": {
+          "photo_pagne": {
+            "type": "string"
+          },
+          "montant": {
+            "type": "string"
+          },
+          "nb_metre": {
+            "type": "string"
+          },
+          "modele": {
+            "type": "number"
+          },
+          "commande": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "commande", "modele"
+        ]
+      },
+
+      Paiement: {
+        "type": "object",
+        "properties": {
+          "date_paie": {
+            "type": "string",
+            "format": "date"
+          },
+          "montant_reg": {
+            "type": "string"
+          },
+          "commande": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "commande", "montant_reg"
         ]
       },
 

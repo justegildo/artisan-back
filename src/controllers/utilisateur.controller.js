@@ -43,7 +43,7 @@ module.exports.addUtilisateur = async (req, res) => {
 
     if (result.rows.length) {
 
-        res.send("Cet email / numéro de téléphone existe déjà dans la base de données !");
+        res.status(400).send("Cet email / numéro de téléphone existe déjà !");
 
     } else {
         try {
@@ -89,7 +89,7 @@ module.exports.addUtilisateur = async (req, res) => {
                         let mailOptions = {
                             from: process.env.SENDER_MAIL, // sender address
                             to: req.body.email, // list of receivers
-                            subject: 'EcoiaApp', // Subject line
+                            subject: 'ARTI-COUT', // Subject line
                             text: "Inscription réussie avec succès ! ", // plain text body
                             html: `<p>${prenoms + ' ' + nom} une très chaleureuse bienvenue à vous sur notre plateforme EcoiaApp ! C\est agréable de vous avoir parmi nous ! </p><br> `
                         };

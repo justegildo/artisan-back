@@ -12,6 +12,10 @@ const modeleRoutes = require('../back/src/routes/modele.routes')
 const mesureRoutes = require('../back/src/routes/mesure.routes')
 const detailMesureRoutes = require('../back/src/routes/detailMesure.routes')
 const publicationRoutes = require('../back/src/routes/publication.routes')
+const commandeRoutes = require('../back/src/routes/commande.routes')
+const rendezVousRoutes = require('../back/src/routes/rendezVous.routes')
+const tenueRoutes = require('../back/src/routes/tenue.routes')
+const paiementRoutes = require('../back/src/routes/paiement.routes')
 const verifyAuthToken = require ('./src/middleware/middleware')
 
 app.use(express.json());
@@ -38,7 +42,7 @@ app.use('/artisan-api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { exp
 app.use('/api/user', userRoutes);
 
 //type utilisateur
-app.use('/api/type-user', verifyAuthToken, typeUserRoutes);
+app.use('/api/type-user', /*verifyAuthToken,*/ typeUserRoutes);
 
 //modele
 app.use('/api/modele', /*verifyAuthToken, */ modeleRoutes);
@@ -54,6 +58,18 @@ app.use('/api/detail-mesure', /*verifyAuthToken, */ detailMesureRoutes);
 
 //publication
 app.use('/api/publication', /*verifyAuthToken, */ publicationRoutes);
+
+//commande
+app.use('/api/commande', /*verifyAuthToken, */ commandeRoutes);
+
+//rendez-vous
+app.use('/api/rendez-vous', /*verifyAuthToken, */ rendezVousRoutes);
+
+//tenue
+app.use('/api/tenue', /*verifyAuthToken, */ tenueRoutes);
+
+//paiement
+app.use('/api/paiement', /*verifyAuthToken, */ paiementRoutes);
 
 //le port
 app.listen(process.env.SERVEUR_PORT, () => 
