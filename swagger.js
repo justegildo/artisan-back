@@ -349,6 +349,25 @@ const swaggerDefinition = {
         ]
       },
 
+      Reponse: {
+        "type": "object",
+        "properties": {
+          "contenu_rep": {
+            "type": "string"
+          },
+          "utilisateur": {
+            "type": "number"
+          },
+          "post": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "contenu_rep", "utilisateur", "post"
+        ]
+      },
+
   
     }
   },

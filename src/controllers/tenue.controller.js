@@ -85,7 +85,7 @@ module.exports.deleteTenue = async(req, res) => {
         if (result) {
             res.status(200).send("Tenue supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 

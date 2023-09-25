@@ -85,7 +85,7 @@ module.exports.deleteCommande = async(req, res) => {
         if (result) {
             res.status(200).send("Commande supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 

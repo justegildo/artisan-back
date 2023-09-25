@@ -85,7 +85,7 @@ module.exports.deletePaiement = async(req, res) => {
         if (result) {
             res.status(200).send("Paiement supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 

@@ -83,7 +83,7 @@ module.exports.deleteModele = async(req, res) => {
         if (result) {
             res.status(200).send("Modèle supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 

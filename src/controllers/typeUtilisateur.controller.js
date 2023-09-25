@@ -83,7 +83,7 @@ module.exports.deleteTypeUtilisateur = async(req, res) => {
         if (result) {
             res.status(200).send("Type utilisateur supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 

@@ -86,7 +86,7 @@ module.exports.deleteDetailMesure = async(req, res) => {
         if (result) {
             res.status(200).send("Détail mesure supprimé avec succès");
         } else {
-
+            res.status(400).send("Erreur")
         }
     }
 } 
