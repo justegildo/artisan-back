@@ -368,6 +368,32 @@ const swaggerDefinition = {
         ]
       },
 
+      Post: {
+        "type": "object",
+        "properties": {
+          "contenu": {
+            "type": "string"
+          },
+          "date_post": {
+            "type": "string",
+            "format": "date"
+          },
+          "heure_post": {
+            "type": "string"
+          },
+          "emetteur": {
+            "type": "number"
+          },
+          "recepteur": {
+            "type": "number"
+          }
+        },
+
+        "required": [
+          "date_post", "emetteur", "recepteur", "heure_post", "contenu"
+        ]
+      },
+
   
     }
   },

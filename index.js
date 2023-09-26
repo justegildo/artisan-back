@@ -17,6 +17,8 @@ const rendezVousRoutes = require('../back/src/routes/rendezVous.routes')
 const tenueRoutes = require('../back/src/routes/tenue.routes')
 const paiementRoutes = require('../back/src/routes/paiement.routes')
 const reponseRoutes = require('../back/src/routes/reponse.routes')
+const postRoutes = require('../back/src/routes/post.routes')
+const fileUploaRoutes = require('../back/src/routes/fileUpload.routes')
 const verifyAuthToken = require ('./src/middleware/middleware')
 
 app.use(express.json());
@@ -74,6 +76,13 @@ app.use('/api/paiement', /*verifyAuthToken, */ paiementRoutes);
 
 //reponse
 app.use('/api/reponse', /*verifyAuthToken, */ reponseRoutes);
+
+//post
+app.use('/api/post', /*verifyAuthToken, */ postRoutes);
+
+//file upload
+app.use('/api/file-upload',  fileUploaRoutes);
+
 
 //le port
 app.listen(process.env.SERVEUR_PORT, () => 
