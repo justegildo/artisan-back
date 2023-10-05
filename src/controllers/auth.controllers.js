@@ -8,8 +8,11 @@ const utilisateurQueries = require('../queries/utilisateur.queries');
 module.exports.signIn = async (req, res) => {
   const { username, password } = req.body;
 
+  const username2 = username.replace(/\s/g, '');
+  //console.log(username2);
+
   //se connecter
-  const query = await db.query(utilisateurQueries.getUser, [username, username]);
+  const query = await db.query(utilisateurQueries.getUser, [username2, username2]);
   const user = query.rows[0];
   //console.log(user);
 

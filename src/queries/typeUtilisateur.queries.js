@@ -1,6 +1,6 @@
-const getAllTypeUtilisateurs = "SELECT * FROM type_utilisateur"; 
+const getAllTypeUtilisateurs = "SELECT * FROM type_utilisateur WHERE name NOT LIKE ('ADMIN')"; 
 
-const getTypeUtilisateurById = "SELECT * FROM type_utilisateur WHERE id = $1 ";
+const getTypeUtilisateurById = "SELECT * FROM type_utilisateur WHERE id = $1 AND name NOT LIKE ('ADMIN') ";
 
 const addTypeUtilisateur = "INSERT INTO type_utilisateur (label, role) VALUES ($1, $2)";
 

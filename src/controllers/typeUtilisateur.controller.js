@@ -74,16 +74,21 @@ module.exports.deleteTypeUtilisateur = async(req, res) => {
     const results = await db.query(typeUtilisateurQueries.getTypeUtilisateurById, [id])
     //console.log(results);
 
-    const noNiveauTypeUtilisateurFound = !results.rows.length;
-    if (noNiveauTypeUtilisateurFound) {
-        res.send("Impossible de supprimer ce type car il n'existe pas dans la base de données. ");
-    } else {
-        const result = await db.query(typeUtilisateurQueries.deleteTypeUtilisateur, [id])
-        //console.log(result);
-        if (result) {
-            res.status(200).send("Type utilisateur supprimé avec succès");
+    try{
+        const noNiveauTypeUtilisateurFound = !results.rows.length;
+        if (noNiveauTypeUtilisateurFound) {
+            res.send("Impossible de supprimer ce type car il n'existe pas dans la base de données. ");
         } else {
-            res.status(400).send("Erreur")
+            const result = await db.query(typeUtilisateurQueries.deleteTypeUtilisateur, [id])
+            //console.log(result);
+            if (result) {
+                res.status(200).send("Type utilisateur supprimé avec succès");
+            } else {
+                res.status(400).send("Erreur")
+            }
         }
+    } catch (err){
+        res.status(400).send(err)
     }
+    
 } 

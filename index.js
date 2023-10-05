@@ -45,7 +45,7 @@ app.use('/artisan-api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { exp
 app.use('/api/user', userRoutes);
 
 //type utilisateur
-app.use('/api/type-user', /*verifyAuthToken,*/ typeUserRoutes);
+app.use('/api/type-user', verifyAuthToken, typeUserRoutes);
 
 //modele
 app.use('/api/modele', /*verifyAuthToken, */ modeleRoutes);
@@ -69,7 +69,7 @@ app.use('/api/commande', /*verifyAuthToken, */ commandeRoutes);
 app.use('/api/rendez-vous', /*verifyAuthToken, */ rendezVousRoutes);
 
 //tenue
-app.use('/api/tenue', /*verifyAuthToken, */ tenueRoutes);
+app.use('/api/tenue', verifyAuthToken,  tenueRoutes);
 
 //paiement
 app.use('/api/paiement', /*verifyAuthToken, */ paiementRoutes);
